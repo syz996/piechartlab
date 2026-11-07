@@ -2,6 +2,8 @@
 import { useMemo, useRef, useState } from 'react';
 import { arcPath, getPercentages, Slice } from '@/lib/chart';
 import { themes } from '@/lib/themes';
+import { FAQS, STEPS, TOOLS } from '@/lib/content';
+import { SITE_URL } from '@/lib/site';
 
 const initial: Slice[] = [
   { id: '1', label: 'Rent', value: 1200 },
@@ -10,6 +12,27 @@ const initial: Slice[] = [
   { id: '4', label: 'Fun', value: 300 },
   { id: '5', label: 'Savings', value: 500 },
 ];
+const APP_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Pie Chart Maker',
+  url: SITE_URL,
+  applicationCategory: 'DesignApplication',
+  operatingSystem: 'Any',
+  browserRequirements: 'Requires JavaScript',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  description: 'Create a pie chart online for free. Edit data, customize colors and labels, and download as PNG or SVG. No signup required.',
+};
+
+const FAQ_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
 
 type LabelMode = 'percent' | 'value' | 'label' | 'none';
 export default function ChartStudio() {
