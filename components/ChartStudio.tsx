@@ -144,7 +144,29 @@ export default function ChartStudio() {
     ))}
   </div>
 </section>
-    <section className="faq" id="faq"><div className="section-kicker">HELP CENTER</div><h2>Frequently asked questions</h2><details><summary>Is this pie chart maker free?</summary><p>Yes. You can create and download charts without creating an account.</p></details><details><summary>Can I download my chart?</summary><p>Yes. Download your chart as PNG or SVG directly from the preview area.</p></details><details><summary>Does my data get uploaded?</summary><p>This prototype processes chart data in your browser. It does not send your chart values to a server.</p></details></section>
+   <section className="faq" id="faq">
+  <div className="section-kicker">HELP CENTER</div>
+  <h2>Frequently asked questions</h2>
+  {FAQS.map(({ q, a }) => (
+    <details key={q}>
+      <summary>{q}</summary>
+      <p>{a}</p>
+    </details>
+  ))}
+</section>
+
+{TOOLS.some(t => t.live) && (
+  <section className="related">
+    <h2>Related tools</h2>
+    <ul>
+      {TOOLS.filter(t => t.live).map(t => (
+        <li key={t.href}><a href={t.href}>{t.label}</a></li>
+      ))}
+    </ul>
+  </section>
+)}
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(APP_LD) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
     <footer><a className="brand" href="/"><span className="brand-mark">◔</span> PieChartLab</a><span>Simple charts. Clear decisions.</span><span>© 2026 PieChartLab</span></footer>
   </main>;
 }
