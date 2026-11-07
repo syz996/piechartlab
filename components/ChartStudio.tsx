@@ -121,7 +121,29 @@ export default function ChartStudio() {
       </div>
       {notice && <p className="notice">{notice}</p>}
     </section>
-    <section className="below-content" id="how-it-works"><div className="section-kicker">GET STARTED</div><h2>A pie chart, made simple</h2><div className="steps"><article><span>01</span><h3>Enter your data</h3><p>Add labels and values, or replace the sample data with your own numbers.</p></article><article><span>02</span><h3>Make it yours</h3><p>Choose a color theme, adjust labels, and switch between pie and donut.</p></article><article><span>03</span><h3>Download and share</h3><p>Export a crisp PNG for documents or SVG for scalable graphics.</p></article></div></section>
+    <section className="explainer" id="what-is-a-pie-chart">
+  <div className="section-kicker">THE BASICS</div>
+  <h2>What is a pie chart, and when should you use one?</h2>
+  <p>A pie chart shows how one total splits into parts. Each slice is a category and its angle is that category&apos;s share of the whole, so a slice worth 25% takes up a quarter of the circle. It works best when you have a handful of categories that add up to something real — a monthly budget, a survey result, a traffic breakdown, a class of students. The chart only means something if the slices sum to 100%.</p>
+  <p>It is the wrong choice when the parts do not add up to a whole, when there are more than about seven categories, or when the slices look almost the same size. At that point a bar chart beats it every time, because comparing lengths is far easier for the eye than comparing angles. If you need to show change over time, use a line chart: a pie has no axis, so it cannot show a trend.</p>
+  <h2>Pie chart or bar chart — which one?</h2>
+  <p>Pick a pie when the message is &quot;this part versus the whole&quot; and you have five to seven parts. Pick a bar chart when the message is &quot;A is bigger than B&quot; or when several values sit close together, since bars give the reader a shared baseline to measure against. A donut chart is the same as a pie with the middle removed — useful when you want to put the total, or a single headline number, inside the chart.</p>
+  <h2>Common ways people use this pie chart maker</h2>
+  <p>This tool is used most often for a monthly budget split, a marketing channel breakdown, survey and poll results, and school or team project figures. In each case the workflow is the same: type your labels and values, check the percentages the tool calculates, adjust the colors and labels, then download a PNG for a document or an SVG for anything that will be printed or resized.</p>
+</section>
+   <section className="below-content" id="how-it-works">
+  <div className="section-kicker">GET STARTED</div>
+  <h2>How to make a pie chart</h2>
+  <div className="steps">
+    {STEPS.map((s, i) => (
+      <article key={s.name}>
+        <span>{String(i + 1).padStart(2, '0')}</span>
+        <h3>{s.name}</h3>
+        <p>{s.text}</p>
+      </article>
+    ))}
+  </div>
+</section>
     <section className="faq" id="faq"><div className="section-kicker">HELP CENTER</div><h2>Frequently asked questions</h2><details><summary>Is this pie chart maker free?</summary><p>Yes. You can create and download charts without creating an account.</p></details><details><summary>Can I download my chart?</summary><p>Yes. Download your chart as PNG or SVG directly from the preview area.</p></details><details><summary>Does my data get uploaded?</summary><p>This prototype processes chart data in your browser. It does not send your chart values to a server.</p></details></section>
     <footer><a className="brand" href="/"><span className="brand-mark">◔</span> PieChartLab</a><span>Simple charts. Clear decisions.</span><span>© 2026 PieChartLab</span></footer>
   </main>;
