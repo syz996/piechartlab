@@ -5,7 +5,7 @@ import { themes } from '@/lib/themes';
 import { FAQS, STEPS, TOOLS } from '@/lib/content';
 import { SITE_URL } from '@/lib/site';
 import SiteHeader from './SiteHeader';
-import SiteFooter from './SiteFooter';）
+import SiteFooter from './SiteFooter';
 
 const initial: Slice[] = [
   { id: '1', label: 'Rent', value: 1200 },
