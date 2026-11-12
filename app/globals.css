@@ -1002,3 +1002,82 @@ footer .brand-mark {
         text-align: center
     }
 }
+/* ---- home: explainer / faq-more / related ---- */
+.explainer,
+.related {
+    max-width: 1000px;
+    margin: 64px auto 0;
+    padding: 0 24px
+}
+
+.explainer h2,
+.related h2 {
+    font-size: 24px;
+    line-height: 1.3;
+    letter-spacing: -.025em;
+    font-weight: 700;
+    margin: 6px 0 14px
+}
+
+.explainer h2:not(:first-of-type) {
+    margin-top: 36px
+}
+
+.explainer p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+    margin: 0 0 14px;
+    max-width: 72ch
+}
+
+.faq-more {
+    max-width: 1000px;
+    margin: 28px auto 0;
+    padding: 0 24px;
+    font-size: 13px;
+    color: var(--muted)
+}
+
+.related ul {
+    margin: 0;
+    padding-left: 18px;
+    columns: 2;
+    column-gap: 32px
+}
+
+.related li {
+    margin-bottom: 8px;
+    font-size: 14px
+}
+
+.related a {
+    color: var(--brand);
+    text-decoration: none
+}
+
+.related a:hover {
+    text-decoration: underline
+}
+
+@media(max-width:800px) {
+    .explainer,
+    .related {
+        margin-top: 44px;
+        padding: 0 18px
+    }
+
+    .explainer h2,
+    .related h2 {
+        font-size: 21px
+    }
+
+    .faq-more {
+        margin-top: 22px;
+        padding: 0 18px
+    }
+
+    .related ul {
+        columns: 1
+    }
+}
