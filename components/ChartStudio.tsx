@@ -6,6 +6,9 @@ import { FAQS, STEPS, TOOLS } from '@/lib/content';
 import { SITE_URL } from '@/lib/site';
 import SiteHeader from './SiteHeader';
 import SiteFooter from './SiteFooter';
+import { exportPngFile, exportSvgFile } from '@/lib/export';
+import ThemeGallery from './ThemeGallery';
+import ExportBar from './ExportBar';
 
 const initial: Slice[] = [
   { id: '1', label: 'Rent', value: 1200 },
@@ -54,25 +57,8 @@ export default function ChartStudio() {
   const update = (id: string, patch: Partial<Slice>) => setSlices(old => old.map(s => s.id === id ? { ...s, ...patch } : s));
   const add = () => setSlices(old => [...old, { id: crypto.randomUUID(), label: `Item ${old.length + 1}`, value: 100 }]);
   const remove = (id: string) => setSlices(old => old.filter(s => s.id !== id));
-  const exportSvg = () => {
-    if (!svgRef.current) return;
-    const clone = svgRef.current.cloneNode(true) as SVGSVGElement;
-    clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-    clone.setAttribute('width', '900'); clone.setAttribute('height', '560');
-    const blob = new Blob([new XMLSerializer().serializeToString(clone)], { type: 'image/svg+xml;charset=utf-8' });
-    const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'pie-chart.svg'; a.click(); URL.revokeObjectURL(url);
-  };
-  const exportPng = () => {
-    if (!svgRef.current) return;
-    const clone = svgRef.current.cloneNode(true) as SVGSVGElement;
-    clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg'); clone.setAttribute('width', '1800'); clone.setAttribute('height', '1120');
-    const source = new XMLSerializer().serializeToString(clone);
-    const blob = new Blob([source], { type: 'image/svg+xml;charset=utf-8' }); const url = URL.createObjectURL(blob);
-    const img = new Image();
-    img.onload = () => { const canvas = document.createElement('canvas'); canvas.width = 1800; canvas.height = 1120; const ctx = canvas.getContext('2d'); if (ctx) { ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, 1800, 1120); ctx.drawImage(img, 0, 0, 1800, 1120); canvas.toBlob(png => { if (!png) return; const pngUrl = URL.createObjectURL(png); const a = document.createElement('a'); a.href = pngUrl; a.download = 'pie-chart.png'; a.click(); URL.revokeObjectURL(pngUrl); }, 'image/png'); } URL.revokeObjectURL(url); };
-    img.onerror = () => { URL.revokeObjectURL(url); setNotice('PNG export failed. Try SVG instead.'); };
-    img.src = url;
-  };
+  const exportSvg = () => exportSvgFile(svgRef.current);
+  const exportPng = () => exportPngFile(svgRef.current, setNotice);
   let cursor = 0;
   const segments = slices.map((slice, i) => { const pct = percentages[i] ?? 0; const start = cursor; const end = cursor + (total > 0 ? (Math.max(0, slice.value) / total) * 360 : 0); cursor = end; return { slice, pct, start, end, color: theme.colors[i % theme.colors.length] }; });
 
@@ -83,8 +69,7 @@ export default function ChartStudio() {
       <div className="studio-heading"><div><div className="section-kicker">CHART WORKSPACE</div><h2>Your chart</h2></div><div className="live-state"><span /> Live preview</div></div>
       <div className="workspace-grid">
         <section className="preview-panel">
-          <div className="preview-toolbar"><span className="panel-title">Preview</span><div className="export-actions"><button className="button button-secondary button-small" onClick={exportSvg}>Download SVG</button><button className="button button-primary button-small" onClick={exportPng}>Download PNG</button></div></div>
-          <div className="chart-stage">
+           <div className="preview-toolbar"><span className="panel-title">Preview</span><ExportBar disabled={!valid} onSvg={exportSvg} onPng={exportPng} /></div>
             {valid ? <svg ref={svgRef} className="chart-svg" viewBox="0 0 620 390" role="img" aria-label="Pie chart preview">
               <rect x="0" y="0" width="620" height="390" fill="#fff" />
               <text x="310" y="34" textAnchor="middle" className="chart-heading">{title || 'Untitled chart'}</text>
@@ -114,7 +99,7 @@ export default function ChartStudio() {
           </section>
           <section className="control-card settings-card"><div className="card-heading"><div><div className="section-kicker">02 / STYLE</div><h3>Customize</h3></div></div>
             <label className="field-label" htmlFor="chart-title">Chart title</label><input id="chart-title" className="text-field" value={title} onChange={e => setTitle(e.target.value)} placeholder="Enter chart title" />
-            <div className="field-block"><span className="field-label">Color theme</span><select className="text-field" value={themeId} onChange={e => setThemeId(e.target.value)}>{themes.map(t => <option key={t.id} value={t.id}>{t.name}</option>)}</select><div className="swatches">{theme.colors.slice(0, 8).map(c => <span key={c} style={{ background: c }} />)}</div></div>
+            <div className="field-block"><span className="field-label">Color theme</span><ThemeGallery value={themeId} onChange={setThemeId} /></div>
             <div className="settings-two"><div><label className="field-label" htmlFor="label-mode">Slice labels</label><select id="label-mode" className="text-field" value={labelMode} onChange={e => setLabelMode(e.target.value as LabelMode)}><option value="percent">Percentages</option><option value="value">Values</option><option value="label">Names</option><option value="none">None</option></select></div><div><label className="field-label" htmlFor="chart-type">Chart shape</label><select id="chart-type" className="text-field" value={donut ? 'donut' : 'pie'} onChange={e => setDonut(e.target.value === 'donut')}><option value="pie">Pie chart</option><option value="donut">Donut chart</option></select></div></div>
             {donut && <div className="field-block"><div className="range-heading"><label className="field-label" htmlFor="hole-size">Hole size</label><span>{hole}%</span></div><input id="hole-size" type="range" min="35" max="72" value={hole} onChange={e => setHole(Number(e.target.value))} /></div>}
             <label className="toggle-line"><span><b>Show legend</b><small>Display category names beside chart</small></span><input type="checkbox" checked={legend} onChange={e => setLegend(e.target.checked)} /></label>
