@@ -1,3 +1,4 @@
+
 export const FAQS = [
   {
     q: 'Is this pie chart maker really free?',
@@ -16,12 +17,12 @@ export const FAQS = [
 
   {
     q: 'Does my data get uploaded to a server?',
-    a: 'No. All of the chart math and drawing happens locally in your browser. The labels and numbers you type stay on your device and are never sent to us, so you can safely use the tool with internal figures, student data or client information. Closing the tab clears the data unless you copy the share link first.'
+    a: 'No. All of the chart math and drawing happens locally in your browser. The labels and numbers you type stay on your device and are never sent to us, so you can safely use the tool with internal figures, student data or client information. Nothing is stored for you, though: closing the tab clears the data, so download the chart before you leave.'
   },
 
   {
     q: 'Can I import data from Excel or Google Sheets?',
-    a: 'Yes. Select the two columns in Excel or Google Sheets, copy them, and paste them into the paste tab. The tool splits labels and values automatically, so you do not have to retype anything. For a single chart that is faster than uploading a file, and nothing is reformatted along the way.'
+    a: 'Not yet. Right now you type each label and value, or add a row for each item you need, so a normal five-row budget takes about a minute. Selecting two columns in Excel or Google Sheets and pasting them straight in is the next thing we are adding.'
   },
 
   {
@@ -38,7 +39,7 @@ export const FAQS = [
 export const STEPS = [
   {
     name: 'Enter your data',
-    text: 'Type or paste your labels and values, or start from the sample data that is already loaded. Each row becomes one slice, and the preview redraws as you type.'
+    text: 'Type your labels and values, or start from the sample data that is already loaded. Each row becomes one slice, and the preview redraws as you type.'
   },
   {
     name: 'Check the percentages',
@@ -49,10 +50,11 @@ export const STEPS = [
     text: 'Pick a color theme, switch between pie and donut, move the legend, and choose whether labels show names, values, percentages or both.'
   },
   {
-    name: 'Download and share',
-    text: 'Export a PNG for slides and documents, or an SVG for print. Copy the share link to reopen the same chart and data later, on any device.'
+    name: 'Download',
+    text: 'Export a PNG for slides, documents and decks, or an SVG for print and anything that has to stay sharp at any size. Both are generated in your browser, so the file is ready as soon as you click.'
   },
 ];
+
 
 // live: 页面还没上就写 false —— 不渲染、不进 sitemap、不产生 404
 export const TOOLS = [
