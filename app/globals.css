@@ -1,36 +1,30 @@
 :root {
-    /* brand */
     --brand: #2563eb;
-    --brand-hover: var(--brand-hover);
-    --brand-light: var(--brand-light);
+    --brand-hover: #1d4ed8;
+    --brand-light: #eff6ff;
     --brand-border: #bfdbfe;
 
-    /* text */
     --ink: #172033;
     --text: #172033;
     --muted: #667085;
     --subtle: #98a2b3;
 
-    /* surface / line */
     --surface: #f5f7fb;
     --surface-2: #f2f4f7;
     --white: #fff;
     --line: #e5e7eb;
-    --line-strong: var(--line-strong);
-    --hairline: var(--hairline);
+    --line-strong: #cbd5e1;
+    --hairline: #f1f2f4;
 
-    /* state */
-    --success: var(--success);
-    --danger: var(--danger);
-    --danger-light: var(--danger-light);
-    --warning: var(--warning);
+    --success: #16a34a;
+    --danger: #dc2626;
+    --danger-light: #fef2f2;
+    --warning: #b45309;
 
-    /* elevation / focus */
     --shadow: 0 1px 3px rgba(16, 24, 40, .06), 0 1px 2px rgba(16, 24, 40, .04);
     --shadow-hover: 0 4px 12px rgba(16, 24, 40, .08);
     --focus-ring: 0 0 0 3px rgba(37, 99, 235, .15);
 
-    /* radius */
     --radius-sm: 6px;
     --radius-btn: 8px;
     --radius-card: 12px
