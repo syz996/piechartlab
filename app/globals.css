@@ -1,8 +1,8 @@
 :root {
     /* brand */
     --brand: #2563eb;
-    --brand-hover: #1d4ed8;
-    --brand-light: #eff6ff;
+    --brand-hover: var(--brand-hover);
+    --brand-light: var(--brand-light);
     --brand-border: #bfdbfe;
 
     /* text */
@@ -16,14 +16,14 @@
     --surface-2: #f2f4f7;
     --white: #fff;
     --line: #e5e7eb;
-    --line-strong: #cbd5e1;
-    --hairline: #f1f2f4;
+    --line-strong: var(--line-strong);
+    --hairline: var(--hairline);
 
     /* state */
-    --success: #16a34a;
-    --danger: #dc2626;
-    --danger-light: #fef2f2;
-    --warning: #b45309;
+    --success: var(--success);
+    --danger: var(--danger);
+    --danger-light: var(--danger-light);
+    --warning: var(--warning);
 
     /* elevation / focus */
     --shadow: 0 1px 3px rgba(16, 24, 40, .06), 0 1px 2px rgba(16, 24, 40, .04);
@@ -93,7 +93,7 @@ button {
     width: 27px;
     height: 27px;
     border-radius: 8px;
-    background: #eff6ff;
+    background: var(--brand-light);
     color: var(--brand);
     display: grid;
     place-items: center;
@@ -199,7 +199,7 @@ h1 {
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #16a34a;
+    background: var(--success);
     display: inline-block
 }
 
@@ -261,7 +261,7 @@ h1 {
 }
 
 .button-primary:hover {
-    background: #1d4ed8
+    background: var(--brand-hover)
 }
 
 .button-secondary {
@@ -326,7 +326,7 @@ h1 {
 }
 
 .preview-foot {
-    border-top: 1px solid #f1f2f4;
+    border-top: 1px solid var(--hairline);
     padding-top: 12px;
     display: flex;
     justify-content: space-between;
@@ -371,8 +371,8 @@ h1 {
 .total-chip {
     font-size: 11px;
     color: var(--muted);
-    background: #f9fafb;
-    border: 1px solid #f1f2f4;
+    background: var(--surface-2);
+    border: 1px solid var(--hairline);
     padding: 5px 9px;
     border-radius: 6px
 }
@@ -453,15 +453,15 @@ h1 {
 }
 
 .remove-row:hover {
-    background: #fef2f2;
-    color: #dc2626
+    background: var(--danger-light);
+    color: var(--danger)
 }
 
 .add-row {
     height: 40px;
     width: 100%;
     margin-top: 9px;
-    border: 1px dashed #cbd5e1;
+    border: 1px dashed var(--line-strong);
     border-radius: 8px;
     background: #fff;
     color: var(--brand);
@@ -475,8 +475,8 @@ h1 {
 }
 
 .add-row:hover {
-    background: #eff6ff;
-    border-color: #93c5fd
+    background: var(--brand-light);
+    border-color: var(--brand-border)
 }
 
 .data-bottom {
@@ -538,7 +538,7 @@ h1 {
     justify-content: space-between;
     margin-top: 17px;
     padding-top: 14px;
-    border-top: 1px solid #f1f2f4
+    border-top: 1px solid var(--hairline)
 }
 
 .toggle-line b {
@@ -588,7 +588,7 @@ h1 {
 
 .empty-icon {
     font-size: 42px;
-    color: #cbd5e1
+    color: var(--line-strong)
 }
 
 .empty-preview strong {
@@ -601,7 +601,7 @@ h1 {
 }
 
 .notice {
-    color: #b45309;
+    color: var(--warning);
     font-size: 12px
 }
 
@@ -639,7 +639,7 @@ h1 {
     width: 30px;
     height: 30px;
     border-radius: 8px;
-    background: #eff6ff;
+    background: var(--brand-light);
     color: var(--brand);
     font-size: 12px;
     font-weight: 750
@@ -896,7 +896,7 @@ footer .brand-mark {
 }
 
 .cta-button:hover {
-    background: #1d4ed8
+    background: var(--brand-hover)
 }
 
 .prose h2 {

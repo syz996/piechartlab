@@ -29,7 +29,7 @@ This is the first UI implementation, not the complete product specification. CSV
 
 - System font stack: `system-ui, -apple-system, Segoe UI, Roboto`
 - UI accent: `#2563EB`
-- Neutral palette: `#111111`, `#374151`, `#6B7280`, `#9CA3AF`, `#E5E7EB`, `#F9FAFB`
+- Neutral palette: `#111111`, `#374151`, `#6B7280`, `#9CA3AF`, `#E5E7EB`, `VAR(--SURFACE-2)`
 - Body: 16px / 1.6
 - Spacing: multiples of 4px
 - Inputs/buttons: 8px radius; cards: 12px radius

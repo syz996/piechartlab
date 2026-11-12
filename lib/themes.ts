@@ -1,7 +1,7 @@
 export const themes = [
   { id: 'vivid', name: 'Vivid', colors: ['#2563EB','#F59E0B','#10B981','#8B5CF6','#EC4899','#06B6D4','#F97316','#64748B'] },
   { id: 'pastel', name: 'Pastel', colors: ['#9DB7F5','#F6C98F','#9ED8C2','#C6B4E8','#F2B6C6','#9ED9E5','#F2D28D','#B7C4D5'] },
-  { id: 'mono', name: 'Monochrome', colors: ['#111827','#374151','#4B5563','#6B7280','#9CA3AF','#D1D5DB','#64748B','#CBD5E1'] },
+  { id: 'mono', name: 'Monochrome', colors: ['#111827','#374151','#4B5563','#6B7280','#9CA3AF','#D1D5DB','#64748B','VAR(--LINE-STRONG)'] },
   { id: 'colorblind', name: 'Color blind', colors: ['#0072B2','#E69F00','#009E73','#CC79A7','#56B4E9','#D55E00','#F0E442','#000000'] },
   { id: 'warm', name: 'Warm', colors: ['#9A3412','#C2410C','#EA580C','#F97316','#FB923C','#FDBA74','#FED7AA','#7C2D12'] },
   { id: 'cool', name: 'Cool', colors: ['#164E63','#0E7490','#0891B2','#0284C7','#2563EB','#4F46E5','#6366F1','#818CF8'] },
