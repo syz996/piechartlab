@@ -84,7 +84,7 @@ const FAQ = [
   },
   {
     q: 'Can I paste data from Excel or Google Sheets?',
-    a: 'Select the label and value columns in Excel or Google Sheets, copy them, and paste them into the editor. The tool splits labels from values, so you do not retype anything and nothing gets reformatted.',
+    a: 'Not yet. Right now you type each label and value, or add a row for each item, so a five-row budget takes about a minute. Selecting two columns in Excel or Google Sheets and pasting them straight in is the next thing we are adding.',
   },
   {
     q: 'Can I download the chart as SVG instead of PNG?',
