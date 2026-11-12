@@ -3,31 +3,100 @@
     --brand-hover: #1d4ed8;
     --brand-light: #eff6ff;
     --brand-border: #bfdbfe;
-
     --ink: #172033;
     --text: #172033;
     --muted: #667085;
     --subtle: #98a2b3;
-
     --surface: #f5f7fb;
     --surface-2: #f2f4f7;
     --white: #fff;
     --line: #e5e7eb;
     --line-strong: #cbd5e1;
     --hairline: #f1f2f4;
-
     --success: #16a34a;
     --danger: #dc2626;
     --danger-light: #fef2f2;
     --warning: #b45309;
-
     --shadow: 0 1px 3px rgba(16, 24, 40, .06), 0 1px 2px rgba(16, 24, 40, .04);
     --shadow-hover: 0 4px 12px rgba(16, 24, 40, .08);
     --focus-ring: 0 0 0 3px rgba(37, 99, 235, .15);
-
     --radius-sm: 6px;
     --radius-btn: 8px;
     --radius-card: 12px
+}
+
+/* ---- ui 2.0 · step 3: theme gallery ---- */
+.theme-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 8px
+}
+
+.theme-option {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color .15s, box-shadow .15s, background-color .15s
+}
+
+.theme-option:hover {
+    border-color: var(--line-strong);
+    box-shadow: var(--shadow)
+}
+
+.theme-option-active,
+.theme-option-active:hover {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, .12)
+}
+
+.theme-option:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px
+}
+
+.theme-chips {
+    display: flex;
+    gap: 2px;
+    height: 14px
+}
+
+.theme-chips span {
+    flex: 1;
+    min-width: 0;
+    border-radius: 3px
+}
+
+.theme-name {
+    font-size: 11px;
+    font-weight: 650;
+    color: var(--muted);
+    line-height: 1.2
+}
+
+.theme-option-active .theme-name {
+    color: var(--brand)
+}
+
+@media(max-width:480px) {
+    .theme-gallery {
+        gap: 6px
+    }
+
+    .theme-option {
+        padding: 6px
+    }
+
+    .theme-chips {
+        height: 11px
+    }
 }
 
 * {
