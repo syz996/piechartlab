@@ -4,6 +4,8 @@ import { arcPath, getPercentages, Slice } from '@/lib/chart';
 import { themes } from '@/lib/themes';
 import { FAQS, STEPS, TOOLS } from '@/lib/content';
 import { SITE_URL } from '@/lib/site';
+import SiteHeader from './SiteHeader';
+import SiteFooter from './SiteFooter';）
 
 const initial: Slice[] = [
   { id: '1', label: 'Rent', value: 1200 },
@@ -75,7 +77,7 @@ export default function ChartStudio() {
   const segments = slices.map((slice, i) => { const pct = percentages[i] ?? 0; const start = cursor; const end = cursor + (total > 0 ? (Math.max(0, slice.value) / total) * 360 : 0); cursor = end; return { slice, pct, start, end, color: theme.colors[i % theme.colors.length] }; });
 
   return <main className="page-shell">
-    <header className="topbar"><a className="brand" href="/"><span className="brand-mark">◔</span> PieChartLab</a><nav><a className="nav-active" href="#editor">Chart maker</a><a href="#how-it-works">How it works</a><a href="#faq">FAQ</a></nav><span className="topbar-note">Free online tool</span></header>
+    <SiteHeader active="/" />
     <section className="intro"><div className="eyebrow"><span className="eyebrow-dot" /> FREE ONLINE TOOL</div><h1>Pie Chart Maker</h1><p>Create a clear pie chart in seconds. Edit your data, customize the look, and download your chart — no signup required.</p></section>
     <section className="studio" id="editor">
       <div className="studio-heading"><div><div className="section-kicker">CHART WORKSPACE</div><h2>Your chart</h2></div><div className="live-state"><span /> Live preview</div></div>
@@ -122,51 +124,56 @@ export default function ChartStudio() {
       {notice && <p className="notice">{notice}</p>}
     </section>
     <section className="explainer" id="what-is-a-pie-chart">
-  <div className="section-kicker">THE BASICS</div>
-  <h2>What is a pie chart, and when should you use one?</h2>
-  <p>A pie chart shows how one total splits into parts. Each slice is a category and its angle is that category&apos;s share of the whole, so a slice worth 25% takes up a quarter of the circle. It works best when you have a handful of categories that add up to something real — a monthly budget, a survey result, a traffic breakdown, a class of students. The chart only means something if the slices sum to 100%.</p>
-  <p>It is the wrong choice when the parts do not add up to a whole, when there are more than about seven categories, or when the slices look almost the same size. At that point a bar chart beats it every time, because comparing lengths is far easier for the eye than comparing angles. If you need to show change over time, use a line chart: a pie has no axis, so it cannot show a trend.</p>
-  <h2>Pie chart or bar chart — which one?</h2>
-  <p>Pick a pie when the message is &quot;this part versus the whole&quot; and you have five to seven parts. Pick a bar chart when the message is &quot;A is bigger than B&quot; or when several values sit close together, since bars give the reader a shared baseline to measure against. A donut chart is the same as a pie with the middle removed — useful when you want to put the total, or a single headline number, inside the chart.</p>
-  <h2>Common ways people use this pie chart maker</h2>
-  <p>This tool is used most often for a monthly budget split, a marketing channel breakdown, survey and poll results, and school or team project figures. In each case the workflow is the same: type your labels and values, check the percentages the tool calculates, adjust the colors and labels, then download a PNG for a document or an SVG for anything that will be printed or resized.</p>
-</section>
-   <section className="below-content" id="how-it-works">
-  <div className="section-kicker">GET STARTED</div>
-  <h2>How to make a pie chart</h2>
-  <div className="steps">
-    {STEPS.map((s, i) => (
-      <article key={s.name}>
-        <span>{String(i + 1).padStart(2, '0')}</span>
-        <h3>{s.name}</h3>
-        <p>{s.text}</p>
-      </article>
-    ))}
-  </div>
-</section>
-   <section className="faq" id="faq">
-  <div className="section-kicker">HELP CENTER</div>
-  <h2>Frequently asked questions</h2>
-  {FAQS.map(({ q, a }) => (
-    <details key={q}>
-      <summary>{q}</summary>
-      <p>{a}</p>
-    </details>
-  ))}
-</section>
-
-{TOOLS.some(t => t.live) && (
-  <section className="related">
-    <h2>Related tools</h2>
-    <ul>
-      {TOOLS.filter(t => t.live).map(t => (
-        <li key={t.href}><a href={t.href}>{t.label}</a></li>
+      <div className="section-kicker">THE BASICS</div>
+      <h2>What is a pie chart, and when should you use one?</h2>
+      <p>A pie chart shows how one total splits into parts. Each slice is a category and its angle is that category&apos;s share of the whole, so a slice worth 25% takes up a quarter of the circle. It works best when you have a handful of categories that add up to something real — a monthly budget, a survey result, a traffic breakdown, a class of students. The chart only means something if the slices sum to 100%.</p>
+      <p>It is the wrong choice when the parts do not add up to a whole, when there are more than about seven categories, or when the slices look almost the same size. At that point a bar chart beats it every time, because comparing lengths is far easier for the eye than comparing angles. If you need to show change over time, use a line chart: a pie has no axis, so it cannot show a trend.</p>
+      <h2>Pie chart or bar chart — which one?</h2>
+      <p>Pick a pie when the message is &quot;this part versus the whole&quot; and you have five to seven parts. Pick a bar chart when the message is &quot;A is bigger than B&quot; or when several values sit close together, since bars give the reader a shared baseline to measure against. A donut chart is the same as a pie with the middle removed — useful when you want to put the total, or a single headline number, inside the chart.</p>
+      <h2>Common ways people use this pie chart maker</h2>
+      <p>This tool is used most often for a monthly budget split, a marketing channel breakdown, survey and poll results, and school or team project figures. In each case the workflow is the same: type your labels and values, check the percentages the tool calculates, adjust the colors and labels, then download a PNG for a document or an SVG for anything that will be printed or resized.</p>
+    </section>
+    <section className="below-content" id="how-it-works">
+      <div className="section-kicker">GET STARTED</div>
+      <h2>How to make a pie chart</h2>
+      <div className="steps">
+        {STEPS.map((s, i) => (
+          <article key={s.name}>
+            <span>{String(i + 1).padStart(2, '0')}</span>
+            <h3>{s.name}</h3>
+            <p>{s.text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+    <p className="faq-more">
+      New to pie charts? Start with{' '}
+      <a href="/how-to/make-a-pie-chart/">how to make a pie chart</a>, or browse{' '}
+      <a href="/pie-chart-examples/">pie chart examples</a> before you build one.
+    </p>
+    <section className="faq" id="faq">
+      <div className="section-kicker">HELP CENTER</div>
+      <h2>Frequently asked questions</h2>
+      {FAQS.map(({ q, a }) => (
+        <details key={q}>
+          <summary>{q}</summary>
+          <p>{a}</p>
+        </details>
       ))}
-    </ul>
-  </section>
-)}
+    </section>
+
+    {TOOLS.some(t => t.live) && (
+      <section className="related">
+        <h2>Related tools</h2>
+        <ul>
+          {TOOLS.filter(t => t.live).map(t => (
+            <li key={t.href}><a href={t.href}>{t.label}</a></li>
+          ))}
+        </ul>
+      </section>
+    )}
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(APP_LD) }} />
-<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
-    <footer><a className="brand" href="/"><span className="brand-mark">◔</span> PieChartLab</a><span>Simple charts. Clear decisions.</span><span>© 2026 PieChartLab</span></footer>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
+    <SiteFooter />
   </main>;
 }
