@@ -271,11 +271,10 @@ h1 {
 }
 
 .button-secondary:hover {
-    background: var(--ink);
-    border-color: var(--ink);
-    color: #fff
+    background: var(--surface-2);
+    border-color: var(--line-strong);
+    color: var(--ink)
 }
-
 .chart-stage {
     min-height: 390px;
     margin-top: 12px;
@@ -434,7 +433,7 @@ h1 {
 .data-row input:focus,
 .text-field:focus {
     border-color: var(--brand);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, .1)
+    box-shadow: var(--focus-ring)
 }
 
 .data-row .number-input {
@@ -1106,4 +1105,66 @@ footer .brand-mark {
     .related ul {
         columns: 1
     }
+}
+
+/* ---- ui 2.0 · step 1: state / focus / elevation ---- */
+.button,
+.cta-button,
+.add-row,
+.remove-row,
+.data-bottom button,
+.topbar nav a,
+.foot-links a,
+.related a {
+    transition: background-color .15s, border-color .15s, color .15s, box-shadow .15s
+}
+
+.button:focus-visible,
+.cta-button:focus-visible,
+.add-row:focus-visible,
+.remove-row:focus-visible,
+.data-bottom button:focus-visible,
+.topbar nav a:focus-visible,
+.foot-links a:focus-visible,
+.related a:focus-visible,
+.prose a:focus-visible,
+.crumbs a:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px
+}
+
+.button:disabled,
+.button[disabled],
+.add-row:disabled {
+    background: var(--surface-2);
+    border-color: var(--line);
+    color: var(--subtle);
+    cursor: not-allowed;
+    box-shadow: none
+}
+
+.button-primary:disabled,
+.button-primary[disabled] {
+    background: var(--line);
+    border-color: transparent;
+    color: var(--subtle)
+}
+
+.steps article {
+    transition: border-color .15s, box-shadow .15s
+}
+
+.steps article:hover {
+    border-color: var(--line-strong);
+    box-shadow: var(--shadow-hover)
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--subtle)
+}
+
+::selection {
+    background: var(--brand-light);
+    color: var(--ink)
 }
