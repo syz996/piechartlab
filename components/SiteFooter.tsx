@@ -10,7 +10,6 @@ export default function SiteFooter() {
         <Link href="/">Pie chart maker</Link>
         <Link href="/how-to/make-a-pie-chart/">How to make a pie chart</Link>
         <Link href="/pie-chart-examples/">Pie chart examples</Link>
-        <Link href="/donut-chart-maker/">Donut chart maker</Link>
       </nav>
       <span>© 2026 PieChartLab</span>
     </footer>
