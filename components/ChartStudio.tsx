@@ -70,6 +70,7 @@ export default function ChartStudio() {
       <div className="workspace-grid">
         <section className="preview-panel">
            <div className="preview-toolbar"><span className="panel-title">Preview</span><ExportBar disabled={!valid} onSvg={exportSvg} onPng={exportPng} /></div>
+           <div className="chart-stage">
             {valid ? <svg ref={svgRef} className="chart-svg" viewBox="0 0 620 390" role="img" aria-label="Pie chart preview">
               <rect x="0" y="0" width="620" height="390" fill="#fff" />
               <text x="310" y="34" textAnchor="middle" className="chart-heading">{title || 'Untitled chart'}</text>
