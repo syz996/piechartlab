@@ -179,10 +179,6 @@ export default function HowToPage() {
               like next to a bad one.
             </li>
             <li>
-              <Link href="/donut-chart-maker/">Donut chart maker</Link> — the same chart with a
-              hole for a total.
-            </li>
-            <li>
               <Link href="/">Pie chart maker</Link> — build it right now in the browser.
             </li>
           </ul>
