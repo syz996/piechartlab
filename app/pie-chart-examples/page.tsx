@@ -19,6 +19,12 @@ export const metadata: Metadata = {
     description: DESC,
     images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Pie chart examples' }],
   },
+    twitter: {
+    card: 'summary_large_image',
+    title: TITLE,
+    description: DESC,
+    images: ['/og.png'],
+  },
 };
 
 const EXAMPLES = [
