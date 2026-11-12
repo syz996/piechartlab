@@ -10,7 +10,7 @@ const DESC =
 export const metadata: Metadata = {
   title: TITLE,
   description: DESC,
-  alternates: { canonical: '/how-to/make-a-pie-chart/' }, // 必须覆盖 layout 的 '/'
+  alternates: { canonical: '/how-to/make-a-pie-chart/' },
   openGraph: {
     type: 'article',
     url: '/how-to/make-a-pie-chart/',
@@ -18,6 +18,12 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESC,
     images: [{ url: '/og.png', width: 1200, height: 630, alt: 'How to make a pie chart' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: TITLE,
+    description: DESC,
+    images: ['/og.png'],
   },
 };
 
