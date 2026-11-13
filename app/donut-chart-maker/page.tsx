@@ -68,7 +68,7 @@ const FAQ = [
   },
   {
     q: 'Can I put a total or a number in the middle of the ring?',
-    a: 'Not yet. The ring is drawn with the centre empty, and the total appears in the legend and in the labels on each slice. If the total has to sit inside the hole, put it in the chart title — "Monthly spending: $3,000" reads just as clearly above the ring.',
+    a: 'Yes. Choose Donut chart under Chart shape and the sum of your values is printed in the middle automatically, with a small TOTAL caption under it, and the Hole size slider decides how much room it gets. What you cannot do yet is type a different number there — the centre always shows the sum, so for a custom headline use the chart title.',
   },
   {
     q: 'Can I download the donut chart as PNG or SVG?',
@@ -170,8 +170,10 @@ export default function DonutChartMakerPage() {
               percentages: the tool works out the shares and the angles for you.
             </li>
             <li>
-              <strong>Switch the chart type to the donut.</strong> The same data becomes a ring; the
-              proportions do not change.
+              <strong>Switch the shape to a donut.</strong> Under <em>Chart shape</em> pick{' '}
+              <em>Donut chart</em>; the same data becomes a ring and the proportions do not change.
+              The <em>Hole size</em> slider (35–72%) sets how wide the ring is — 58% is a good
+              starting point.
             </li>
             <li>
               <strong>Choose what the labels show.</strong> Percentages suit a report, values suit an
@@ -183,11 +185,12 @@ export default function DonutChartMakerPage() {
             </li>
           </ol>
 
-          <h2>关于这枚环的几句话</h2>
+          <h2>Why the hole is not just decoration</h2>
           <p>
-            The hole is not decoration. It removes the crowded centre where short slices meet, and it
-            gives the labels somewhere to breathe. If you find yourself printing the total in the
-            middle, remember that the version here leaves it in the legend and in the title instead.
+            The centre of a pie is its busiest part: short slices meet there and their tips
+            disappear. Taking the middle out removes the least readable area and gives the labels
+            room outside the ring. It is also the natural place for one headline number — switch
+            the shape to a donut and the total is printed inside the hole for you.
           </p>
 
           <h2>Frequently asked questions</h2>
