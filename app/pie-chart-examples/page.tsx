@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description: DESC,
     images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Pie chart examples' }],
   },
-    twitter: {
+  twitter: {
     card: 'summary_large_image',
     title: TITLE,
     description: DESC,
@@ -110,6 +110,11 @@ export default function ExamplesPage() {
             the <Link href="/">pie chart maker</Link> you get the same chart in your own colors,
             and you can download it as PNG or SVG. The step-by-step method is in
             {' '}<Link href="/how-to/make-a-pie-chart/">how to make a pie chart</Link>.
+          </p>
+          <p className="note">
+            Want the ring instead of a solid circle?{' '}
+            <Link href="/donut-chart-maker/">Open the donut chart maker</Link> and the same numbers
+            become a donut.
           </p>
         </div>
       </main>

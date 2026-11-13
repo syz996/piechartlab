@@ -61,7 +61,7 @@ export const TOOLS = [
   { href: '/pie-chart-examples/', label: 'Pie chart examples', live: true },
   { href: '/free-pie-chart-maker/', label: 'Free pie chart maker', live: false },
   { href: '/pie-chart-with-percentages/', label: 'Pie chart with percentages', live: false },
-  { href: '/donut-chart-maker/', label: 'Donut chart maker', live: false },
+  { href: '/donut-chart-maker/', label: 'Donut chart maker', live: true },
   { href: '/3d-pie-chart-maker/', label: '3D pie chart maker', live: false },
   { href: '/svg-pie-chart/', label: 'SVG pie chart', live: false },
   { href: '/pie-chart-color-palettes/', label: 'Pie chart color palettes', live: false },

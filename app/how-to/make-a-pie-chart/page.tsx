@@ -187,6 +187,10 @@ export default function HowToPage() {
             <li>
               <Link href="/">Pie chart maker</Link> — build it right now in the browser.
             </li>
+            <li>
+              <Link href="/donut-chart-maker/">Donut chart maker</Link> — the same chart with the
+              middle removed.
+            </li>
           </ul>
         </div>
       </main>
